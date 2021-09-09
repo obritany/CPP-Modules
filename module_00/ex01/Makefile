@@ -1,27 +1,25 @@
 #SETUP
 NAME		= PhoneBook
 CXX			= clang++
-CXXFLAGS	= -Wall -Wextra -Werror
+CXXFLAGS	= -Wall -Wextra -Werror -MD
 RM			= rm -f
 
 #FILES
 SRCS_DIR	= sources/
 FLS			= main.cpp PhoneBook.cpp Contact.cpp
 SRCS		= $(addprefix $(SRCS_DIR), $(FLS))
-HDRS		= $(SRCS:.cpp=.hpp)
 OBJS		= $(SRCS:.cpp=.o)
+DEPS		= $(SRCS:.cpp=.d)
 
 #COMMANDS
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CXX) $(OBJS) -o $(NAME)
+			@$(CXX) $(OBJS) -o $(NAME)
 			@echo "$(GREEN)$(NAME) created!$(DEFAULT)"
 
-$(OBJS):	$(HDRS)
-
 clean:
-			@$(RM) $(OBJS)
+			@$(RM) $(OBJS) $(DEPS)
 			@echo "$(YELLOW)$(NAME) cleaned!$(DEFAULT)"
 
 fclean:		clean
@@ -29,6 +27,9 @@ fclean:		clean
 			@echo "$(RED)$(NAME) deleted!$(DEFAULT)"
 
 re:			fclean all
+
+#RULES
+-include $(DEPS)
 
 #EXTRA
 RED = \033[1;31m

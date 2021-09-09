@@ -12,7 +12,7 @@ OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+			@$(CXX) $(OBJS) -o $(NAME)
 			@echo "$(GREEN)$(NAME) created!$(DEFAULT)"
 
 clean:
