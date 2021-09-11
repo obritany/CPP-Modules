@@ -6,6 +6,7 @@ RM			= rm -f
 
 #FILES
 SRCS_DIR	= sources/
+# OBJS_DIR	= $(SRCS_DIR)objs/
 FLS			= main.cpp PhoneBook.cpp Contact.cpp
 SRCS		= $(addprefix $(SRCS_DIR), $(FLS))
 OBJS		= $(SRCS:.cpp=.o)
@@ -30,6 +31,10 @@ re:			fclean all
 
 #RULES
 -include $(DEPS)
+
+# %.o:		%.cpp
+# 			mkdir -p $(OBJS_DIR)
+# 			$(CXX) $(CXXFLAGS) -c $< -o $(OBJS_DIR)$(@F)
 
 #EXTRA
 RED = \033[1;31m
