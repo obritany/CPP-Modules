@@ -6,7 +6,7 @@ RM			= rm -f
 
 #FILES
 SRCS_DIR	= sources/
-FLS			= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+FLS			= main.cpp Zombie.cpp ZombieHorde.cpp
 SRCS		= $(addprefix $(SRCS_DIR), $(FLS))
 OBJS		= $(SRCS:.cpp=.o)
 DEPS		= $(SRCS:.cpp=.d)

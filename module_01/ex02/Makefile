@@ -5,8 +5,8 @@ CXXFLAGS	= -Wall -Wextra -Werror -MD -std=c++98
 RM			= rm -f
 
 #FILES
-SRCS_DIR	= sources/
-FLS			= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS_DIR	=
+FLS			= main.cpp
 SRCS		= $(addprefix $(SRCS_DIR), $(FLS))
 OBJS		= $(SRCS:.cpp=.o)
 DEPS		= $(SRCS:.cpp=.d)
