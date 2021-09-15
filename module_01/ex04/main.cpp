@@ -5,6 +5,7 @@ std::string replace_line(std::string src_line, std::string s1, std::string s2)
 {
 	size_t pos = 0;
 	size_t s1_len = s1.length();
+	size_t s2_len = s2.length();
 
 	while (true)
 	{
@@ -13,6 +14,7 @@ std::string replace_line(std::string src_line, std::string s1, std::string s2)
 			break;
 		src_line.erase(pos, s1_len);
 		src_line.insert(pos, s2);
+		pos += s2_len;
 	}
 	return (src_line);
 }
