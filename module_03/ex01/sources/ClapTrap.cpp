@@ -82,6 +82,6 @@ int ClapTrap::getDamage()
 
 void ClapTrap::setName(std::string name)
 {
-	std::cout << "ClapTrap " << _name << " turned out to be " << name << ".\n";
+	std::cout << "ClapTrap " << _name << " is a " << name << ".\n";
 	_name = name;
 }
