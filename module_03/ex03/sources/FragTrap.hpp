@@ -3,7 +3,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : virtual public ClapTrap	// virtual for for single ClapTrap creation with multiple inheritance
 {
 public:
 	FragTrap();

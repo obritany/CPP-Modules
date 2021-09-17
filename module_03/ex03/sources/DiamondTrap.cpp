@@ -3,7 +3,7 @@
 DiamondTrap::DiamondTrap() : _name("Unknown")
 {
 	_hitpoints = FragTrap::_hitpoints;
-	_energy = ScavTrap::_energy;
+	_energy = ScavTrap::_scav_energy;
 	_damage = FragTrap::_damage;
 	std::cout << "DiamondTrap " << _name << " enters the room.\n";
 }
@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap() : _name("Unknown")
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name)
 {
 	_hitpoints = FragTrap::_hitpoints;
-	_energy = ScavTrap::_energy;
+	_energy = ScavTrap::_scav_energy;
 	_damage = FragTrap::_damage;
 	std::cout << "DiamondTrap " << _name << " enters the room.\n";
 }
