@@ -6,7 +6,7 @@ Dog::Dog() : _brain(new Brain())
 	std::cout << "Dog " << _type << " Default constructor\n";
 }
 
-Dog::Dog(const Dog &dog)
+Dog::Dog(const Dog &dog) : _brain(new Brain())
 {
 	*this = dog;
 	std::cout << "Dog " << _type << " Copy constructor\n";
@@ -21,12 +21,12 @@ Dog::~Dog()
 Dog &Dog::operator=(const Dog &dog)
 {
 	if (this == &dog)
-		return(*this);
+		return (*this);
 
 	_type = dog._type;
 
 	for (int i = 0; i < 100; i++)
-		_brain[i] = dog._brain[i];
+		_brain->set_idea(i, dog._brain->get_idea(i));
 
 	std::cout << "Dog " << _type << " Assignment operator\n";
 	return (*this);

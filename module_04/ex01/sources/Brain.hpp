@@ -17,6 +17,9 @@ public:
 
 	void fill_ideas();
 	void show_ideas();
+
+	std::string get_idea(int index);
+	void set_idea(int index, std::string idea);
 };
 
 #endif

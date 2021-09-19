@@ -34,3 +34,13 @@ void Brain::show_ideas()
 	for (int i = 0; i < 100; i++)
 		std::cout << _ideas[i] << std::endl;
 }
+
+std::string Brain::get_idea(int index)
+{
+	return (_ideas[index]);
+}
+
+void Brain::set_idea(int index, std::string idea)
+{
+	_ideas[index] = idea;
+}

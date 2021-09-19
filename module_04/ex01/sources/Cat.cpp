@@ -6,7 +6,7 @@ Cat::Cat() : _brain(new Brain())
 	std::cout << "Cat " << _type << " Default constructor\n";
 }
 
-Cat::Cat(const Cat &cat)
+Cat::Cat(const Cat &cat) : _brain(new Brain())
 {
 	*this = cat;
 	std::cout << "Cat " << _type << " Copy constructor\n";
@@ -26,7 +26,7 @@ Cat &Cat::operator=(const Cat &cat)
 	_type = cat._type;
 
 	for (int i = 0; i < 100; i++)
-		_brain[i] = cat._brain[i];
+		_brain->set_idea(i, cat._brain->get_idea(i));
 
 	std::cout << "Cat " << _type << " Assignment operator\n";
 	return (*this);
