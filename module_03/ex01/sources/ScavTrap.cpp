@@ -16,10 +16,10 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << _name << " enters the room.\n";
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scav_trap) : ClapTrap(scav_trap._name)
+ScavTrap::ScavTrap(const ScavTrap &scav_trap)
 {
-	std::cout << "ScavTrap " << scav_trap._name << " copy appears.\n";
 	*this = scav_trap;
+	std::cout << "ScavTrap " << _name << " copy appears.\n";
 }
 
 ScavTrap::~ScavTrap()

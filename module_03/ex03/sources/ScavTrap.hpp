@@ -3,7 +3,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap	// virtual for for single ClapTrap creation with multiple inheritance
+class ScavTrap : virtual public ClapTrap // virtual for for single ClapTrap creation with multiple inheritance
 {
 public:
 	ScavTrap();
@@ -16,8 +16,9 @@ public:
 	void attack(std::string const &target);
 	void guardGate();
 
-protected:
-	int _scav_energy;
+	static const int HITPOINTS = 100; // static for child class access without overwrite on creation
+	static const int ENERGY = 50;
+	static const int DAMAGE = 20;
 };
 
 #endif

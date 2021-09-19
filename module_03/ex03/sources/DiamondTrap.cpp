@@ -2,24 +2,24 @@
 
 DiamondTrap::DiamondTrap() : _name("Unknown")
 {
-	_hitpoints = FragTrap::_hitpoints;
-	_energy = ScavTrap::_scav_energy;
-	_damage = FragTrap::_damage;
+	_hitpoints = FragTrap::HITPOINTS;
+	_energy = ScavTrap::ENERGY;
+	_damage = FragTrap::DAMAGE;
 	std::cout << "DiamondTrap " << _name << " enters the room.\n";
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name)
 {
-	_hitpoints = FragTrap::_hitpoints;
-	_energy = ScavTrap::_scav_energy;
-	_damage = FragTrap::_damage;
+	_hitpoints = FragTrap::HITPOINTS;
+	_energy = ScavTrap::ENERGY;
+	_damage = FragTrap::DAMAGE;
 	std::cout << "DiamondTrap " << _name << " enters the room.\n";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &diamond_trap) : ClapTrap(diamond_trap._name + "_clap_name")
 {
-	std::cout << "DiamondTrap " << diamond_trap._name << " copy appears.\n";
 	*this = diamond_trap;
+	std::cout << "DiamondTrap " << _name << " copy appears.\n";
 }
 
 DiamondTrap::~DiamondTrap()

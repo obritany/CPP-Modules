@@ -11,13 +11,13 @@ protected:
 public:
 	Animal();
 	Animal(const Animal &animal);
-	~Animal();
+	virtual ~Animal(); // virtual to call all desructors on delete
 
 	Animal &operator=(const Animal &animal);
 
 	virtual void makeSound() const; // virtual to overwrite a function in child classes created as Animal
 
-	std::string getType() const;
+	std::string getType() const; // const to restrict object variables from changes
 };
 
 #endif

@@ -12,8 +12,8 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energy(10),
 
 ClapTrap::ClapTrap(const ClapTrap &clap_trap)
 {
-	std::cout << "ClapTrap " << clap_trap._name << " copy appears.\n";
 	*this = clap_trap;
+	std::cout << "ClapTrap " << _name << " copy appears.\n";
 }
 
 ClapTrap::~ClapTrap()

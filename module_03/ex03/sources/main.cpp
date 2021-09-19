@@ -14,6 +14,19 @@ int main()
 	diamond1.guardGate();
 	diamond1.highFivesGuys();
 	diamond1.whoAmI();
+	std::cout << std::endl;
+
+	ClapTrap ct("ClapTest");
+	ct.getInfo();
+	std::cout << std::endl;
+
+	ScavTrap st("ScavTest");
+	st.getInfo();
+	std::cout << std::endl;
+
+	DiamondTrap dt("DiamondTest");
+	dt.getInfo();
+	std::cout << std::endl;
 
 	return 0;
 }

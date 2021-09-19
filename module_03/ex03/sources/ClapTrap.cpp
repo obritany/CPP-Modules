@@ -12,8 +12,8 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energy(10),
 
 ClapTrap::ClapTrap(const ClapTrap &clap_trap)
 {
-	std::cout << "ClapTrap " << clap_trap._name << " copy appears.\n";
 	*this = clap_trap;
+	std::cout << "ClapTrap " << _name << " copy appears.\n";
 }
 
 ClapTrap::~ClapTrap()
@@ -84,4 +84,12 @@ void ClapTrap::setName(std::string name)
 {
 	std::cout << "ClapTrap " << _name << " is a " << name << ".\n";
 	_name = name;
+}
+
+void ClapTrap::getInfo()
+{
+	std::cout << "ClapTrap " << _name << " info:\n";
+	std::cout << "hitpoints " << _hitpoints << std::endl;
+	std::cout << "energy " << _energy << std::endl;
+	std::cout << "damage " << _damage << std::endl;
 }

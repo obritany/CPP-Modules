@@ -4,7 +4,7 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap	// Order - FragTrap rewrite same ScavTrap values in ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap // Order - FragTrap rewrite same ScavTrap values in ClapTrap
 {
 private:
 	std::string _name;

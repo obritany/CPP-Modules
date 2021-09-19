@@ -18,8 +18,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap &frag_trap) : ClapTrap(frag_trap._name)
 {
-	std::cout << "FragTrap " << frag_trap._name << " copy appears.\n";
 	*this = frag_trap;
+	std::cout << "FragTrap " << _name << " copy appears.\n";
 }
 
 FragTrap::~FragTrap()

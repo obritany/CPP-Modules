@@ -27,6 +27,7 @@ public:
 	int getDamage();
 
 	void setName(std::string name);
+	void getInfo();
 };
 
 #endif
