@@ -22,6 +22,11 @@ Character::Character(const Character &src)
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		delete _materias[i];
+		_materias[i] = NULL;
+	}
 	std::cout << "Character " << _name << " destructor\n";
 }
 
@@ -32,7 +37,10 @@ Character &Character::operator=(const Character &src)
 
 	_name = src._name;
 	for (int i = 0; i < 4; i++)
-		_materias[i] = src._materias[i]->clone();
+	{
+		if (src._materias[i] != NULL)
+			_materias[i] = src._materias[i]->clone();
+	}
 
 	std::cout << "Character " << _name << " Assignment operator\n";
 	return (*this);
@@ -47,19 +55,10 @@ void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (_materias[i] == m)
-		{
-			std::cout << "\033[1;33m" << _name << " already has that " << m->getType() << " in pocket #" << i << "\n\033[0m";
-			return;
-		}
-	}
-
-	for (int i = 0; i < 4; i++)
-	{
 		if (_materias[i] == NULL)
 		{
 			_materias[i] = m;
-			std::cout << _name << " takes " << m->getType() << " to pocket #" << i << std::endl;
+			std::cout << _name << " takes " << ((m == NULL) ? "nothing" : m->getType()) << " to pocket #" << i << std::endl;
 			return;
 		}
 	}
