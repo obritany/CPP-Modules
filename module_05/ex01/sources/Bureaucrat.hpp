@@ -1,7 +1,9 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+class Form;
 #include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -19,6 +21,7 @@ public:
 
 	void upgrade();
 	void downgrade();
+	void signForm(Form &form);
 
 	std::string getName() const;
 	unsigned int getGrade() const;

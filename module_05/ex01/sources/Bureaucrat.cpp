@@ -29,7 +29,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 {
 	if (this == &src)
 		return (*this);
-		
+
 	new (this) Bureaucrat(src._name, src._grade);
 	std::cout << "Bureaucrat " << _name << " (" << _grade << ") Assignment operator\n";
 	return (*this);
@@ -47,6 +47,20 @@ void Bureaucrat::downgrade()
 	if (_grade == 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "Bureaucrat " << _name << " (" << _grade << ") signs form " << form.getName() << " (" << form.getSignGrade() << ")\n";
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Bureaucrat " << _name << " (" << _grade << ") cannot signs form " << form.getName() << " (" << form.getSignGrade() << ") because "
+				  << e.what() << std::endl;
+	}
 }
 
 std::string Bureaucrat::getName() const
