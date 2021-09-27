@@ -54,11 +54,25 @@ void Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << "Bureaucrat " << _name << " (" << _grade << ") signs form " << form.getName() << " (" << form.getSignGrade() << ")\n";
+		std::cout << "\033[1;32mBureaucrat " << _name << " (" << _grade << ") signs form " << form.getName() << " (" << form.getSignGrade() << ")\n\033[0m";
 	}
 	catch (const std::exception &e)
 	{
 		std::cout << "Bureaucrat " << _name << " (" << _grade << ") cannot signs form " << form.getName() << " (" << form.getSignGrade() << ") because "
+				  << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(const Form &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << "\033[1;32mBureaucrat " << _name << " (" << _grade << ") execute form " << form.getName() << " (" << form.getExecGrade() << ")\n\033[0m";
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Bureaucrat " << _name << " (" << _grade << ") cannot execute form " << form.getName() << " (" << form.getExecGrade() << ") because "
 				  << e.what() << std::endl;
 	}
 }

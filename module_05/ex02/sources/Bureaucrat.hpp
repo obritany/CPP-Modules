@@ -22,6 +22,7 @@ public:
 	void upgrade();
 	void downgrade();
 	void signForm(Form &form);
+	void executeForm(Form const &form);
 
 	std::string getName() const;
 	unsigned int getGrade() const;

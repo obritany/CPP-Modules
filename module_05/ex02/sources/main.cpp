@@ -1,11 +1,16 @@
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	Bureaucrat brc1("Bob", 50);
-	Bureaucrat brc2("John", 100);
+	Bureaucrat brc1("Bob", 1);
+	Bureaucrat brc2("John", 150);
 
-	Form form1("Form1", 75, 75, false);
+	PresidentialPardonForm form("Target");
+	PresidentialPardonForm form1(form);
+
 	std::cout << brc1;
 	std::cout << brc2;
 	std::cout << form1;
@@ -13,8 +18,8 @@ int main()
 
 	try
 	{
-		brc1.signForm(form1);
-		brc2.signForm(form1);
+		brc1.executeForm(form1);
+		brc2.executeForm(form1);
 	}
 	catch (std::exception &e)
 	{
@@ -22,10 +27,13 @@ int main()
 	}
 	std::cout << std::endl;
 
+	brc1.signForm(form1);
+	std::cout << std::endl;
+
 	try
 	{
-		form1.beSigned(brc1);
-		form1.beSigned(brc2);
+		form1.execute(brc1);
+		form1.execute(brc2);
 	}
 	catch (std::exception &e)
 	{

@@ -32,8 +32,7 @@ Form &Form::operator=(const Form &src)
 	if (this == &src)
 		return (*this);
 
-	new (this) Form(src);
-	std::cout << "Form " << _name << " (" << _grade_sign << "," << _grade_exec << "," << _is_signed << ") Assignment operator\n";
+	_is_signed = src._is_signed;
 	return (*this);
 }
 
@@ -65,6 +64,14 @@ bool Form::isSigned() const
 	return (_is_signed);
 }
 
+bool Form::isExecutable(Bureaucrat const &executor) const
+{
+	if (executor.getGrade() <= _grade_exec)
+		return (true);
+	else
+		return (false);
+}
+
 std::ostream &operator<<(std::ostream &cout, const Form &src)
 {
 	cout << "\033[1;36mForm " << src.getName() << " (" << src.getSignGrade() << "," << src.getExecGrade() << "," << src.isSigned() << ")\n\033[0m";
@@ -79,4 +86,9 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("\033[1;31mToo low grade\033[0m");
+}
+
+const char *Form::FormIsNotSignedException::what() const throw()
+{
+	return ("\033[1;31mForm is not signed\033[0m");
 }

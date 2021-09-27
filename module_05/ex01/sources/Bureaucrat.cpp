@@ -54,7 +54,7 @@ void Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << "Bureaucrat " << _name << " (" << _grade << ") signs form " << form.getName() << " (" << form.getSignGrade() << ")\n";
+		std::cout << "\033[1;32mBureaucrat " << _name << " (" << _grade << ") signs form " << form.getName() << " (" << form.getSignGrade() << ")\n\033[0m";
 	}
 	catch (const std::exception &e)
 	{
