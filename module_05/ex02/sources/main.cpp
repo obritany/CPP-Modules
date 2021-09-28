@@ -40,5 +40,17 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
+	ShrubberyCreationForm form2("Target1");
+	RobotomyRequestForm form3("Target2");
+	PresidentialPardonForm form4("Target3");
+
+	brc1.signForm(form2);
+	brc1.signForm(form3);
+	brc1.signForm(form4);
+
+	brc1.executeForm(form2);
+	brc1.executeForm(form3);
+	brc1.executeForm(form4);
+
 	return (0);
 }
