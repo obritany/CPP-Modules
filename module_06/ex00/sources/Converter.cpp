@@ -6,10 +6,17 @@ Converter::Converter() : _input(""), _value(0)
 
 Converter::Converter(const std::string input) : _input(input)
 {
-	if (_input.length() == 1 && !(isdigit(*(_input.c_str()))))
-		_value = static_cast<double>(*(_input.c_str()));
+	if (!(isdigit(*(_input.c_str()))))
+	{
+		if (_input.length() == 1)
+			_value = static_cast<double>(*(_input.c_str())); // char
+
+		else if (_input != "+inf" && _input != "-inf" && _input != "nan" &&
+				 _input != "+inff" && _input != "-inff" && _input != "nanf")
+			_input = "error"; // wrong input
+	}
 	else
-		_value = atof(_input.c_str());
+		_value = atof(_input.c_str()); // num
 }
 
 Converter::Converter(const Converter &src) : _input(src._input), _value(src._value)
@@ -32,7 +39,8 @@ Converter &Converter::operator=(const Converter &src)
 void Converter::printChar()
 {
 	if (_input == "+inf" || _input == "-inf" || _input == "nan" ||
-		_input == "+inff" || _input == "-inff" || _input == "nanf")
+		_input == "+inff" || _input == "-inff" || _input == "nanf" ||
+		_input == "error")
 		std::cout << "char: impossible\n";
 	else
 	{
@@ -47,7 +55,8 @@ void Converter::printChar()
 void Converter::printInt()
 {
 	if (_input == "+inf" || _input == "-inf" || _input == "nan" ||
-		_input == "+inff" || _input == "-inff" || _input == "nanf")
+		_input == "+inff" || _input == "-inff" || _input == "nanf" ||
+		_input == "error")
 		std::cout << "int: impossible\n";
 	else
 	{
@@ -58,7 +67,9 @@ void Converter::printInt()
 
 void Converter::printFloat()
 {
-	if (_input == "+inf" || _input == "-inf" || _input == "nan")
+	if (_input == "error")
+		std::cout << "float: impossible\n";
+	else if (_input == "+inf" || _input == "-inf" || _input == "nan")
 		std::cout << "float: " << _input << "f" << std::endl;
 	else if (_input == "+inff" || _input == "-inff" || _input == "nanf")
 		std::cout << "float: " << _input << std::endl;
@@ -71,7 +82,9 @@ void Converter::printFloat()
 
 void Converter::printDouble()
 {
-	if (_input == "+inf" || _input == "-inf" || _input == "nan")
+	if (_input == "error")
+		std::cout << "double: impossible\n";
+	else if (_input == "+inf" || _input == "-inf" || _input == "nan")
 		std::cout << "double: " << _input << std::endl;
 	else if (_input == "+inff" || _input == "-inff" || _input == "nanf")
 		std::cout << "double: " << _input.substr(0, _input.size() - 1) << std::endl;
