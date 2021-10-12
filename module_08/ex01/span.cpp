@@ -56,12 +56,22 @@ int Span::longestSpan()
 	return (std::fabs(max));
 }
 
-// void Span::addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end)
-// {
-// 	int size = std::distance(start, end);
-// 	if (_vec.size() + size > _N)
-// 		throw std::exception();
+void Span::addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end)
+{
+	int size = std::distance(start, end);
+	if (_vec.size() + size > _N)
+		throw std::exception();
 
-// 	_count += size;
-// 	_vec.insert(_vec.begin() + _vec.size(), start, end);
-// }
+	_count += size;
+	_vec.insert(_vec.begin() + _vec.size(), start, end); // dest start it, src start it, src end it
+}
+
+void Span::printNum(int val)
+{
+	std::cout << val << std::endl;
+}
+
+void Span::print()
+{
+	std::for_each(_vec.begin(), _vec.end(), printNum);
+}
