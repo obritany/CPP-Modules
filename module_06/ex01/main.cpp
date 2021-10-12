@@ -2,6 +2,7 @@
 
 struct Data
 {
+	int test;
 };
 
 uintptr_t serialize(Data* ptr)
@@ -19,6 +20,8 @@ int main()
 	Data		data;
 	Data		*data_ptr;
 	uintptr_t	uiptr;
+
+	data.test = 42;
 
 	std::cout << "Data address:\t\t\t\t" << &data << std::endl;
 	uiptr = serialize(&data);

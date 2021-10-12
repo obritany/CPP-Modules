@@ -48,7 +48,7 @@ void Converter::printChar()
 		if (c < 32 || c > 126)
 			std::cout << "char: Non displayable\n";
 		else
-			std::cout << "char: " << c << std::endl;
+			std::cout << "char: '" << c << "'\n";
 	}
 }
 
