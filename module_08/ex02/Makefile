@@ -6,7 +6,7 @@ RM			= rm -f
 
 #FILES
 SRCS_DIR	= 
-FLS			= main.cpp span.cpp
+FLS			= main.cpp mutantstack.cpp
 SRCS		= $(addprefix $(SRCS_DIR), $(FLS))
 OBJS		= $(SRCS:.cpp=.o)
 DEPS		= $(SRCS:.cpp=.d)
